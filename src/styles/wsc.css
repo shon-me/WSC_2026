@@ -1,0 +1,43 @@
+:root {
+  --wsc-display: 'Barlow Condensed', 'Arial Narrow', system-ui, sans-serif;
+  --wsc-body: 'Source Sans 3', Roboto, system-ui, sans-serif;
+}
+
+.v-application {
+  font-family: var(--wsc-body);
+}
+
+/* Headlines, team names, scores, countdown digits */
+.wsc-display {
+  font-family: var(--wsc-display) !important;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Gallery grid: uniform cells, with one optional 2x2 feature tile per section */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-auto-rows: clamp(140px, 20vw, 200px);
+  grid-auto-flow: dense;
+  gap: 12px;
+}
+.media-grid > .media-grid__feature {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+@media (min-width: 960px) {
+  .media-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
